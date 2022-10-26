@@ -8,7 +8,7 @@ class UserRequestOtpGenerateSerializer(serializers.Serializer):
 
 
 """Validate OTP Generate Response"""
-class RequestOTPResponseSerializer(serializers.ModelSerializer):
+class OtpGenerateResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = OTPRequest
         fields = ['request_id']

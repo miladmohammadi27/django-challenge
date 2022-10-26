@@ -26,7 +26,7 @@ class OTPView(APIView):
                  3- Send OTP For User To Sign In With It
                 """
                 created_otp_info: OTPRequest = OTPRequest.objects.otp_request_handler(user_otp_request_info)
-                return Response(data=serializers.RequestOTPResponseSerializer(created_otp_info).data, status=status.HTTP_200_OK)
+                return Response(data=serializers.OtpGenerateResponseSerializer(created_otp_info).data, status=status.HTTP_200_OK)
             except Exception as error:
                 return Response(status=status.HTTP_400_BAD_REQUEST, data=error)
 
@@ -53,11 +53,11 @@ class OTPView(APIView):
 
                 if query.exists():
                     """Is Not New User --> Just Send Authentication Token """
-                    joined = False
+                    joined: bool = False
                     user = query.first()
                 else:
                     """Is New User --> Create New User And Then Send Authentication Token """
-                    joined = True
+                    joined: bool = True
                     user = User.objects.create(username=data['receiver'])
 
                 refresh = RefreshToken.for_user(user)
