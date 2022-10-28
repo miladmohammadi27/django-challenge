@@ -1,0 +1,739 @@
+{
+	"info": {
+		"_postman_id": "c7154866-e955-49ba-82be-d29536bbc5cf",
+		"name": "Arman Django Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Request OTP To Phone Or Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/users/otp?receiver=09109276090&channel=phone",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"otp"
+							],
+							"query": [
+								{
+									"key": "receiver",
+									"value": "09109276090"
+								},
+								{
+									"key": "channel",
+									"value": "phone"
+								}
+							]
+						},
+						"description": "send phone or email to receive OTP -\r\nin response --> request_id should be saved for OTP verification"
+					},
+					"response": []
+				},
+				{
+					"name": "Request To Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiver\": \"09109276090\",\r\n    \"request_id\": \"02ad3a2c-995c-4826-8f56-7e43de961e87\",\r\n    \"password\": 52552\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/users/otp/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"otp",
+								""
+							]
+						},
+						"description": "request to verify OTP and request_id -\r\nin response ---> access token should be saved for other requests"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Selling",
+			"item": [
+				{
+					"name": "Stadium Model Crud",
+					"item": [
+						{
+							"name": "Stadium List All",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/stadium/listcreate/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"stadium",
+										"listcreate",
+										""
+									]
+								},
+								"description": "the user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Stadium Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Anfield\",\r\n    \"seats\": {\r\n        \"seats\": [\"a1\", \"a2\", \"a3\", \"a4\", \"a5\", \"b1\" ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/stadium/listcreate/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"stadium",
+										"listcreate",
+										""
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Stadium Retrieve",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/stadium/rud/71f3c71c-5429-435e-b8be-4acb3ab386e5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"stadium",
+										"rud",
+										"71f3c71c-5429-435e-b8be-4acb3ab386e5"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Stadium Update",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"seats\": {\r\n        \"seats\": [\r\n            \"a1\",\r\n            \"a2\",\r\n            \"a3\",\r\n            \"a4\",\r\n            \"a5\",\r\n            \"b1\",\r\n            \"b2\",\r\n            \"b3\"\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/stadium/rud/71f3c71c-5429-435e-b8be-4acb3ab386e5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"stadium",
+										"rud",
+										"71f3c71c-5429-435e-b8be-4acb3ab386e5"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Stadium Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/stadium/rud/71f3c71c-5429-435e-b8be-4acb3ab386e5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"stadium",
+										"rud",
+										"71f3c71c-5429-435e-b8be-4acb3ab386e5"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Team Model Crud",
+					"item": [
+						{
+							"name": "Team List All",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/team/listcreate/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"team",
+										"listcreate",
+										""
+									]
+								},
+								"description": "the user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Team Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Liverpool\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/team/listcreate/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"team",
+										"listcreate",
+										""
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Team Retrieve",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/team/rud/7f6c9cad-434e-43a4-8024-cba0cb8fb362",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"team",
+										"rud",
+										"7f6c9cad-434e-43a4-8024-cba0cb8fb362"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Team Update",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"Manchester City\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/team/rud/7f6c9cad-434e-43a4-8024-cba0cb8fb362",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"team",
+										"rud",
+										"7f6c9cad-434e-43a4-8024-cba0cb8fb362"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Team Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/team/rud/7f6c9cad-434e-43a4-8024-cba0cb8fb362",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"team",
+										"rud",
+										"7f6c9cad-434e-43a4-8024-cba0cb8fb362"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Match Model Crud",
+					"item": [
+						{
+							"name": "Match List All",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDg5MjM3LCJpYXQiOjE2NjY5MTY0MzcsImp0aSI6Ijg2OTkxZTcxZTRhMTQyYWViMWE3MTRmMjEzYTEwOTZkIiwidXNlcl9pZCI6M30.oPsFBNWsE05cW6j0wZIA0Glhn6MApghFU2T08ivEsIQ"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/match/list/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"match",
+										"list",
+										""
+									]
+								},
+								"description": "the user should be authenticated"
+							},
+							"response": []
+						},
+						{
+							"name": "Match Retrieve",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDg5MjM3LCJpYXQiOjE2NjY5MTY0MzcsImp0aSI6Ijg2OTkxZTcxZTRhMTQyYWViMWE3MTRmMjEzYTEwOTZkIiwidXNlcl9pZCI6M30.oPsFBNWsE05cW6j0wZIA0Glhn6MApghFU2T08ivEsIQ"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/match/retrieve/5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"match",
+										"retrieve",
+										"5"
+									]
+								},
+								"description": "user should be authenticated"
+							},
+							"response": []
+						},
+						{
+							"name": "Match Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stadium\": \"3678478b-4c79-4b51-a82b-9fe0c81a433c\",\r\n    \"home_team\": \"aabe09e1-1ea6-42f7-9fba-364b9ca98954\",\r\n    \"guest_team\": \"c3d6652e-a847-40cc-b85c-17f2eae66199\",\r\n    \"datetime\": \"2022-10-30T21:00:00Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/match/create/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"match",
+										"create",
+										""
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Match Update",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"datetime\": \"2023-10-30T21:00:00Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/match/rud/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"match",
+										"rud",
+										"4"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Match Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDc5OTQ2LCJpYXQiOjE2NjY5MDcxNDYsImp0aSI6IjMwOWEwMjYyNWU3ZDQzYTQ4ODNmMTc2NjA4YjA5NGU2IiwidXNlcl9pZCI6Mn0.lasETp4YlMeWHiRqZ33MvY8QSKEb8nRaiOjSC9l4cuI"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/match/rud/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"match",
+										"rud",
+										"4"
+									]
+								},
+								"description": "user should have admin permissions"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Buying Seats",
+					"item": [
+						{
+							"name": "Buy Seat",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MDg5MjM3LCJpYXQiOjE2NjY5MTY0MzcsImp0aSI6Ijg2OTkxZTcxZTRhMTQyYWViMWE3MTRmMjEzYTEwOTZkIiwidXNlcl9pZCI6M30.oPsFBNWsE05cW6j0wZIA0Glhn6MApghFU2T08ivEsIQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"match_id\": \"3\",\r\n  \"seat_id\": \"4\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/selling/buy/seat/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"selling",
+										"buy",
+										"seat",
+										""
+									]
+								},
+								"description": "user can buy seat by having two parameter:\r\n1- match_id \r\n2- seat_id \r\nthat can retrieve from other APIs"
+							},
+							"response": []
+						}
+					],
+					"description": "user should be authenticated for use this APIs"
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
